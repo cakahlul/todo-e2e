@@ -8,6 +8,4 @@ orbs:
 workflows:
   build:
     - cypress/run:
-        parallel: true # split all specs across machines
-        parallelism: 4 # use 4 CircleCI machines to finish quickly
         start: 'npm start' # start server before running tests
