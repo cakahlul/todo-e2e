@@ -1,0 +1,66 @@
+{
+  "name": "todomvc-e2e",
+  "version": "0.0.0",
+  "scripts": {
+    "ng": "ng",
+    "start": "ng serve",
+    "build": "ng build",
+    "watch": "ng build --watch --configuration development",
+    "test": "ng test",
+    "start:server": "./node_modules/.bin/json-server --watch ./server/db.json",
+    "cypress:open": "cypress open",
+    "cypress:open:coverage": "ng serve --extra-webpack-config ./cypress/coverage.webpack.js & npx cypress run",
+    "cypress:coverage:summary": "npx nyc report --reporter=text-summary"
+  },
+  "private": true,
+  "dependencies": {
+    "@angular/animations": "^14.1.0",
+    "@angular/common": "^14.1.0",
+    "@angular/compiler": "^14.1.0",
+    "@angular/core": "^14.1.0",
+    "@angular/forms": "^14.1.0",
+    "@angular/platform-browser": "^14.1.0",
+    "@angular/platform-browser-dynamic": "^14.1.0",
+    "@angular/router": "^14.1.0",
+    "ngx-build-plus": "^14.0.0",
+    "rxjs": "~7.5.0",
+    "tslib": "^2.3.0",
+    "zone.js": "~0.11.4"
+  },
+  "devDependencies": {
+    "@angular-devkit/build-angular": "^14.1.0",
+    "@angular/cli": "~14.1.0",
+    "@angular/compiler-cli": "^14.1.0",
+    "@cypress/code-coverage": "^3.10.0",
+    "@istanbuljs/nyc-config-babel": "^3.0.0",
+    "@istanbuljs/nyc-config-typescript": "^1.0.2",
+    "@types/jasmine": "~4.0.0",
+    "babel-plugin-istanbul": "^6.1.1",
+    "cypress": "^10.8.0",
+    "istanbul-lib-coverage": "^3.2.0",
+    "jasmine-core": "~4.2.0",
+    "json-server": "^0.17.0",
+    "karma": "~6.4.0",
+    "karma-chrome-launcher": "~3.1.0",
+    "karma-coverage": "~2.2.0",
+    "karma-jasmine": "~5.1.0",
+    "karma-jasmine-html-reporter": "~2.0.0",
+    "nyc": "^15.1.0",
+    "source-map-support": "^0.5.21",
+    "typescript": "~4.7.2"
+  },
+  "nyc": {
+    "extends": "@istanbuljs/nyc-config-babel",
+    "all": true,
+    "exclude": [
+      "**/cypress/**",
+      "**/coverage/**",
+      "karma.conf.js",
+      "src/test.ts",
+      "**/*.spec.ts"
+    ],
+    "reporter": [
+      "html"
+    ]
+  }
+}
