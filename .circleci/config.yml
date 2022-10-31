@@ -2,11 +2,13 @@ version: 2.1
 orbs:
   node: circleci/node@5.0.3
   cypress: cypress-io/cypress@1
+jobs:
+  cypress/run:
+    steps:
+      - run:
+        command: 'npm install'
 workflows:
   build:
     jobs:
-      - run:
-          name: install depedencies
-          command: npm install
       - cypress/run:
           start: 'npm start'
