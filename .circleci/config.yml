@@ -5,7 +5,7 @@ orbs:
 workflows:
   build:
     jobs:
-    - run:
+      - run:
           name: install depedencies
           command: npm install
       - cypress/run:
